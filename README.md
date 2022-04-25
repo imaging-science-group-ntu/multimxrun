@@ -73,7 +73,7 @@ that for n_process value.
         </tr>
         <tr>
             <td>-c CSV | --csv_input CSV</td>
-            <td>File Path String to a CSV file containing one line per-simulation, replace "CSV" with the file path to the input CSV file. <a href="README.md#CSV_File" title="CSV File Formatting">CSV File Formatting</a></td>
+            <td>File Path String to a CSV file containing one line per-simulation, replace "CSV" with the file path to the input CSV file. <a href="README.md#CSV_File_Formatting" title="CSV File Formatting">CSV File Formatting</a></td>
             <td>Yes</td>
         </tr>
         <tr>
