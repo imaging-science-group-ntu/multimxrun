@@ -110,12 +110,15 @@ When using a CSV file:
 * The ```-t``` argument is automatically set to the number of rows in the CSV file and is no longer required to be specified. 
 * ```filename``` is a required named column and can't be substitued for another name, although it can be supplimented by a second text variable in addition; for example, ```PSD_filename``` when using multiple output data files for multiple monitors in the same simulation.
 
-Example CSV use for an instrument ```Example_Dynamic_CSV_Simulation.instr``` with parameters ```filename```, ```Test_X``` and ```Test_Y```.
+### CSV Example
+#### CSV Instrument
+An instrument ```Example_Dynamic_CSV_Simulation.instr``` with parameters ```filename```, ```Test_X``` and ```Test_Y```.
 ```C
 DEFINE INSTRUMENT Example_Dynamic_CSV_Simulation(char *filename = "test.xbd", Test_X = 0.0, Test_Y = 0.0)
 ```
 
-Example CSV file ```Test.csv``` corresponding to the specified instrument ```Example_Dynamic_CSV_Simulation.instr``` above. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad, correct ordering of columns isn't required.
+#### Example CSV File
+```Test.csv``` corresponding to the specified instrument ```Example_Dynamic_CSV_Simulation.instr``` above. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad, correct ordering of columns isn't required.
 ```C
 "X","Y","filename"
 0.1,0.2,"Test_0.xbd"
