@@ -103,8 +103,11 @@ that for n_process value.
 ## CSV File Formatting
 When using a CSV file:
 * one simulation will be ran per-line of the CSV file, where the variable values in each line of the CSV file are read in and applied one simulation at a time.
-* The CSV file must consist of named column headers labelling the variables on the first row, this is in order for the script to determine which CSV file column corresponds to each variable in the simulated instrument.
-* The CSV file must form a perfect grid, all CSV columns must be the same length with the same number of variables.
+* The CSV file must consist of named column headers labelling the variables on the first row, this is in order for the script to determine parity between the simulation and CSV file, matching each CSV file column with each corresponding variable in the simulated instrument.
+* The CSV file contents must form a 'perfect grid' which matches the instrument file:
+  * Each individual column in the CSV file must correspond to a single variable named in the instrument file.
+  * All CSV columns must be the same length.
+  * All rows must have a value set for all variables.
 * The ```-t``` argument is automatically set to the number of lines in the CSV file and is no longer required to be specified. 
 * ```filename``` is a required named column and can't be substitued for another name, although it can be supplimented by another name in addition for multiple output files for different monitors (for example).
 
@@ -113,7 +116,7 @@ Example CSV use for an instrument with parameters ```filename```, ```Test_X``` a
 DEFINE INSTRUMENT Example_Dynamic_CSV_Simulation(char *filename = "test.xbd", Test_X = 0.0, Test_Y = 0.0)
 ```
 
-Example CSV file ```Test.csv``` corresponding to the specified instrument. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad.
+Example CSV file ```Test.csv``` corresponding to the specified instrument. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad, correct ordering of columns isn't required.
 ```C
 X,Y,filename
 0.1,0.2,"Test_0.xbd"
@@ -127,7 +130,7 @@ In this case, the first simulation will use variables `X = 0.1`, `Y = 0.2`, `fil
 
 ## Examples:
 ### Identical Simulations
-Run 8 total simulations of the instrument file ```Example_Static_Simulation.instr``` across as many CPU cores as possible, number of events is 10E6, concatenate data into a single file 'out.dat' and delete all individual simulation directories afterwards:
+Run 8 instances of identical simulations of the instrument file ```Example_Static_Simulation.instr``` across as many CPU cores as possible, number of events is 10E6, concatenate data into a single file 'out.dat' and delete all individual simulation directories afterwards:
 ```python
 ./multimxrun.py -r -n 10000000 -o data.dat -t 8 Example_Static_Simulation.instr
 ```
@@ -145,9 +148,6 @@ For reference CSV file content for this example, see <a href="README.md#CSV_File
 
 ## References
 Author: Imaging Science Research Group, Nottingham Trent University
-
 License: GPL version 3 or later
-
 Version: 0.1
-
 Built with: [Python 3.9](https://www.python.org/downloads/release/python-390/)
