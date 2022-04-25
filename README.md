@@ -1,5 +1,5 @@
 # multimxrun
-Utility to run several copies of the McXtrace simulation utility in seporate processes
+Utility to run several copies of the McXtrace simulation utility in separate processes
 
 usage: multimxrun.py [-h] [-n N_EVENTS] [-d DIR] [-r] [-o OUTPUT] [-e PREFIX] [-a ADDITIONAL] [-c CSV_INPUT | -t T_PROCESS]
                      [-p N_PROCESS] [-s SLEEP_SEC] [-v]
@@ -50,3 +50,13 @@ Author: Imaging Research Group, Nottingham Trent University
 License: GPL version 3 or later
 
 Version: 0.1
+
+# Example Use:
+
+Run 8 copies of the instrument file 'Single_Hexagonal_Channel.instr' on all CPU cores, number of events is 10E6, and concatenate data into one file 'out.dat', deleting all data directories afterwards:
+
+./multimxrun.py -r -n 10000000 -o data.dat -t 8 Single_Hexagonal_Channel.instr
+
+Use the CSV file 'Test.csv' to specify parameters for each process of the instrument file 'Single_Hexagonal_Channel.instr' on all CPU cores, number of events is 10E6, and put all the data files into a directory called 'out', deleting all data directories afterwards:
+
+./multimxrun.py -r -n 10000000 -d out -c Test.csv Single_Hexagonal_Channel.instr
