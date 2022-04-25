@@ -103,22 +103,21 @@ that for n_process value.
 ## CSV File Formatting
 When using a CSV file:
 * one simulation will be ran per-line of the CSV file, where the variable values in each line of the CSV file are read in and applied one simulation at a time.
-* The CSV file must consist of named column headers labelling the variables on the first row, this is in order for the script to determine parity between the simulation and CSV file, matching each CSV file column with each corresponding variable in the simulated instrument.
-* The CSV file contents must form a 'perfect grid' which matches the instrument file:
-  * Each individual column in the CSV file must correspond to a single variable named in the instrument file.
-  * All CSV columns must be the same length.
-  * All rows must have a value set for all variables.
-* The ```-t``` argument is automatically set to the number of lines in the CSV file and is no longer required to be specified. 
-* ```filename``` is a required named column and can't be substitued for another name, although it can be supplimented by another name in addition for multiple output files for different monitors (for example).
+* Each individual variable named in the instrument file must correspond to a single column in the CSV file, with the variable names listed one per-column in the first row of the CSV file. This is in order for the script to determine parity between the simulation and CSV file, matching each CSV file column with the corresponding variable in the simulated instrument.
+* The data for simulations is entered from the second row of the CSV file, data must form a 'perfect grid' which directly corresponds to the instrument file:
+  * All rows must have a value set for all named variables (each column).
+  * Each CSV column must have an identical number of rows.
+* The ```-t``` argument is automatically set to the number of rows in the CSV file and is no longer required to be specified. 
+* ```filename``` is a required named column and can't be substitued for another name, although it can be supplimented by a second text variable in addition; for example, ```PSD_filename``` when using multiple output data files for multiple monitors in the same simulation.
 
-Example CSV use for an instrument with parameters ```filename```, ```Test_X``` and ```Test_Y```.
+Example CSV use for an instrument ```Example_Dynamic_CSV_Simulation.instr``` with parameters ```filename```, ```Test_X``` and ```Test_Y```.
 ```C
 DEFINE INSTRUMENT Example_Dynamic_CSV_Simulation(char *filename = "test.xbd", Test_X = 0.0, Test_Y = 0.0)
 ```
 
-Example CSV file ```Test.csv``` corresponding to the specified instrument. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad, correct ordering of columns isn't required.
+Example CSV file ```Test.csv``` corresponding to the specified instrument ```Example_Dynamic_CSV_Simulation.instr``` above. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad, correct ordering of columns isn't required.
 ```C
-X,Y,filename
+"X","Y","filename"
 0.1,0.2,"Test_0.xbd"
 0.05,0.1,"Test_1.xbd"
 0.0,0.0,"Test_2.xbd"
