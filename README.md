@@ -3,7 +3,7 @@ Utility to run several instances of the McXtrace simulation utility in separate 
 
 ## Contents
 * <a href="README.md#Arguments" title="Arguments">Arguments</a>.
-* <a href="README.md#CSV_File_Formatting" title="CSV File Formatting">CSV File Formatting</a>.
+* <a href="README.md#CSV-File-Formatting" title="CSV File Formatting">CSV File Formatting</a>.
 * <a href="README.md#Examples" title="Examples">Examples</a>.
 * <a href="README.md#References" title="References">References</a>.
 
@@ -79,7 +79,7 @@ that for n_process value.
         </tr>
         <tr>
             <td>-c CSV | --csv_input CSV</td>
-            <td>File Path String to a CSV file containing one line per-simulation, replace "CSV" with the file path to the input CSV file. <a href="README.md#CSV_File_Formatting" title="CSV File Formatting">CSV File Formatting</a></td>
+            <td>File Path String to a CSV file containing one line per-simulation, replace "CSV" with the file path to the input CSV file. <a href="#CSV-File-Formatting" title="CSV File Formatting">CSV File Formatting</a></td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -139,7 +139,7 @@ Use the CSV file ```Test.csv``` to specify parameters for each process of the in
 ```python
 ./multimxrun.py -r -n 10000000 -d out -c Test.csv Example_Dynamic_CSV_Simulation.instr
 ```
-For reference CSV file content for this example, see <a href="README.md#CSV_File_Formatting" title="CSV File Formatting">CSV File Formatting</a>.
+For reference CSV file content for this example, see <a href="README.md#CSV-File-Formatting" title="CSV File Formatting">CSV File Formatting</a>.
 
 ## To-do
 * check if executable is in different dir then working dir is correct
