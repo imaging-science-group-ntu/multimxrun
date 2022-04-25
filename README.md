@@ -1,25 +1,25 @@
 # multimxrun
 Utility to run several instances of the McXtrace simulation utility in separate processes using ```python 3.9```.
 
-## Contents
+This script allows the user to run several copies of McXtrace in separate processes.
+
+There are two modes that can be used:
+1. Identical simulation file repeated multiple times to achieve greater statistical accuracy
+2. Simulation parameters determined uniquely for each simulation via a CSV file, with one row for each simulation/process.
+
+## Documentation Contents
 * <a href="README.md#Arguments" title="Arguments">Arguments</a>.
 * <a href="README.md#CSV-File-Formatting" title="CSV File Formatting">CSV File Formatting</a>.
 * <a href="README.md#Examples" title="Examples">Examples</a>.
 * <a href="README.md#References" title="References">References</a>.
 
-## Example command line syntax
+## Command-Line Syntax Overview
 ```bash
-multimxrun.py [-h] [-n N_EVENTS] [-d DIR] [-r] [-o OUTPUT] [-e PREFIX] [-a ADDITIONAL]
-                [-c CSV_INPUT | -t T_PROCESS]
-                [-p N_PROCESS] [-s SLEEP_SEC] [-v]
-                sim_file
+multimxrun.py [-h] [-n N_EVENTS] [-d DIR] [-r] [-o OUTPUT] [-e PREFIX]
+              [-a ADDITIONAL] [-c CSV_INPUT | -t T_PROCESS]
+              [-p N_PROCESS] [-s SLEEP_SEC] [-v]
+              sim_file
 ```
-
-McXtrace Simulation Multiprocess Run Utility. This script allows the user to run several copies of McXtrace in separate processes.
-There are two modes that can be used: (1) Identical simulation file repeated multiple times to achieve greater statistical
-accuracy (2) Simulation parameters determined uniquely for each simulation via a CSV file with one row for each
-simulation/process. If number of concurrent processes to run not specified, it automatically gets number of CPU cores and uses
-that for n_process value.
 
 ## Arguments
 Full documentation for list of command-line arguments for multimxrun.
