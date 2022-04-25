@@ -145,6 +145,9 @@ For reference CSV file content for this example, see <a href="README.md#CSV_File
 
 ## References
 Author: Imaging Science Research Group, Nottingham Trent University
+
 License: GPL version 3 or later
+
 Version: 0.1
+
 Built with: [Python 3.9](https://www.python.org/downloads/release/python-390/)
