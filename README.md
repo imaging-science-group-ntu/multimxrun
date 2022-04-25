@@ -125,7 +125,7 @@ Example CSV file ```Test.csv``` corresponding to the specified instrument ```Exa
 0.1,-0.2,"Test_4.xbd"
 ```
 
-In this case, the first simulation will use variables `X = 0.1`, `Y = 0.2`, `filename = "Test_0.xbd`, the second simulation would then use the variables `X = 0.05`, `Y = 0.1`, `filename = "Test_1.xbd`, this continues until the end of the CSV file is reached.
+In this case, the first simulation will use variables `X = 0.1`, `Y = 0.2`, `filename = "Test_0.xbd"`, the second simulation would then use the variables `X = 0.05`, `Y = 0.1`, `filename = "Test_1.xbd"`, continuing until the final row of the CSV file is reached.
 
 ## Examples:
 ### Identical Simulations
@@ -146,7 +146,7 @@ For reference CSV file content for this example, see <a href="README.md#CSV-File
 * instead of assuming instrument file ends in .instr, extract the file type from the string
 
 ## References
-Author: Imaging Science Research Group, Nottingham Trent University
-License: GPL version 3 or later
-Version: 0.1
+Author: Imaging Science Research Group, Nottingham Trent University\
+License: GPL version 3 or later\
+Version: 0.1\
 Built with: [Python 3.9](https://www.python.org/downloads/release/python-390/)
