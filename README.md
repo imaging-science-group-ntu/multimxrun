@@ -22,7 +22,7 @@ simulation/process. If number of concurrent processes to run not specified, it a
 that for n_process value.
 
 ## Arguments
-
+Full documentation for list of command-line arguments for multimxrun.
 <table>
     <thead>
         <tr>
@@ -33,12 +33,12 @@ that for n_process value.
     </thead>
     <tbody>
         <tr>
-            <td>-h | --help</td>
-            <td>Displays help information for multimxrun.</td>
+            <td>-h</td>
+            <td>Displays help information for multimxrun including all command line arguments and their descriptions.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-v | --verbose</td>
+            <td>-v</td>
             <td>Verbose output</td>
             <td>Yes</td>
         </tr>
@@ -48,52 +48,52 @@ that for n_process value.
             <td>No, Final argument</td>
         </tr>
         <tr>
-            <td>-n N_EVENT | --n_events N_EVENT</td>
+            <td>-n N_EVENT</td>
             <td>Number of events to run per-simulation, replace "N_EVENT" with an integer. Default: 1E8.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>-d DIR | --dir DIR</td>
+            <td>-d DIR</td>
             <td>File Path String for the directory to save all files in, replace "DIR" with the output directory.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-r | --remove</td>
+            <td>-r</td>
             <td>Delete all individual simulation directories after all simulations complete.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-o OUT | --output OUT</td>
+            <td>-o OUT</td>
             <td>File Path String to concatonate all data files into a single output file, replace "OUTPUT" with the output file path.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-e PREFIX | --prefix PREFIX</td>
+            <td>-e PREFIX</td>
             <td>Prefix for auto-generated simulation name. Default: "sim_data_".</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-a ADD | --additional ADD</td>
+            <td>-a ADD</td>
             <td>Additional command line options parsed through to the simulation, replace "ADD" with valid MCXTrace command line options.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-c CSV | --csv_input CSV</td>
+            <td>-c CSV</td>
             <td>File Path String to a CSV file containing one line per-simulation, replace "CSV" with the file path to the input CSV file. <a href="#CSV-File-Formatting" title="CSV File Formatting">CSV File Formatting</a></td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-t T_PROC | --t_process T_PROC</td>
+            <td>-t T_PROC</td>
             <td>Total Number of processes to run, replace "T_PROC" with an integer number of simulations to run. Defaults: # CSV rows (CSV file used) or "N_PROC" (no CSV file used).</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-n N_PROC | --n_process N_PROC</td>
+            <td>-n N_PROC</td>
             <td>Total number of processes to simulate concurrently, replace "N_PROC" with integer number of cores. Default: # CPU cores.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>-s SLEEP | --sleep_sec SLEEP</td>
+            <td>-s SLEEP</td>
             <td>Number of seconds between each iteration of the monitoring loop, replace "SLEEP" with integer number of seconds. Default: 1.</td>
             <td>Yes</td>
         </tr>
@@ -101,8 +101,9 @@ that for n_process value.
 </table>
 
 ## CSV File Formatting
+### CSV File Formatting Rules
 When using a CSV file:
-* one simulation will be ran per-line of the CSV file, where the variable values in each line of the CSV file are read in and applied one simulation at a time.
+* One simulation will be ran per-line of the CSV file, where the variable values in each line of the CSV file are read in and applied one simulation at a time.
 * Each individual variable named in the instrument file must correspond to a single column in the CSV file, with the variable names listed one per-column in the first row of the CSV file. This is in order for the script to determine parity between the simulation and CSV file, matching each CSV file column with the corresponding variable in the simulated instrument.
 * The data for simulations is entered from the second row of the CSV file, data must form a 'perfect grid' which directly corresponds to the instrument file:
   * All rows must have a value set for all named variables (each column).
@@ -111,13 +112,14 @@ When using a CSV file:
 * ```filename``` is a required named column and can't be substitued for another name, although it can be supplimented by a second text variable in addition; for example, ```PSD_filename``` when using multiple output data files for multiple monitors in the same simulation.
 
 ### CSV Example
-#### CSV Instrument
+Example instrument definition and corresponding CSV file content.
+#### Instrument
 An instrument ```Example_Dynamic_CSV_Simulation.instr``` with parameters ```filename```, ```Test_X``` and ```Test_Y```.
 ```C
 DEFINE INSTRUMENT Example_Dynamic_CSV_Simulation(char *filename = "test.xbd", Test_X = 0.0, Test_Y = 0.0)
 ```
 
-#### Example CSV File
+#### Sample CSV File
 ```Test.csv``` corresponding to the specified instrument ```Example_Dynamic_CSV_Simulation.instr``` above. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad, correct ordering of columns isn't required.
 ```C
 "X","Y","filename"
@@ -130,7 +132,7 @@ DEFINE INSTRUMENT Example_Dynamic_CSV_Simulation(char *filename = "test.xbd", Te
 
 In this case, the first simulation will use variables `X = 0.1`, `Y = 0.2`, `filename = "Test_0.xbd"`, the second simulation would then use the variables `X = 0.05`, `Y = 0.1`, `filename = "Test_1.xbd"`, continuing until the final row of the CSV file is reached.
 
-## Examples:
+## Examples
 ### Identical Simulations
 Run 8 instances of identical simulations of the instrument file ```Example_Static_Simulation.instr``` across as many CPU cores as possible, number of events is 10E6, concatenate data into a single file 'out.dat' and delete all individual simulation directories afterwards:
 ```python
