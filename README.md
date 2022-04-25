@@ -120,7 +120,7 @@ DEFINE INSTRUMENT Example_Dynamic_CSV_Simulation(char *filename = "test.xbd", Te
 #### Sample CSV File
 ```Test.csv``` corresponding to the specified instrument ```Example_Dynamic_CSV_Simulation.instr``` above. Note that text fields such as filenames must be quoted as strings when inspected in a raw text editor such as notepad, correct ordering of columns isn't required.
 ```C
-"X","Y","filename"
+"Test_X","Test_Y","filename"
 0.1,0.2,"Test_0.xbd"
 0.05,0.1,"Test_1.xbd"
 0.0,0.0,"Test_2.xbd"
