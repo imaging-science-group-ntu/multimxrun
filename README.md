@@ -39,12 +39,12 @@ that for n_process value.
         </tr>
         <tr>
             <td>-n N_EVENTS | --n_events N_EVENTS</td>
-            <td>Number of events to run per-simulation, replace ```N_EVENTS``` with an integer. Default: 1E8.</td>
+            <td>Number of events to run per-simulation, replace "N_EVENTS" with an integer. Default: 1E8.</td>
             <td>No</td>
         </tr>
         <tr>
             <td>-d DIR | --dir DIR</td>
-            <td>File Path String for the directory to save all files in, replace ```DIR``` with the output directory.</td>
+            <td>File Path String for the directory to save all files in, replace "DIR" with the output directory.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@ that for n_process value.
         </tr>
         <tr>
             <td>-o OUTPUT | --output OUTPUT</td>
-            <td>File Path String to concatonate all data files into a single output file, replace ```OUTPUT``` with the output file path.</td>
+            <td>File Path String to concatonate all data files into a single output file, replace "OUTPUT" with the output file path.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -69,22 +69,22 @@ that for n_process value.
         </tr>
         <tr>
             <td>-c CSV | --csv_input CSV</td>
-            <td>File Path String to a CSV file containing one line per-simulation, replace ```CSV``` with the file path to the input CSV file. More information on CSV formatting listed below.</td>
+            <td>File Path String to a CSV file containing one line per-simulation, replace "CSV" with the file path to the input CSV file. <a href="README.md#CSV_File" title="CSV File Formatting">CSV File Formatting</a></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>-t T_PROCESS | --t_process T_PROCESS</td>
-            <td>Total Number of processes to run. Defaults: (CSV file used) # CSV rows. (no CSV file used) ```N_Process```.</td>
+            <td>Total Number of processes to run. Defaults: (CSV file used) # CSV rows, (no CSV file used) "N_Process".</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>-n N_PROCESS | --n_process N_PROCESS</td>
-            <td>Total number of processes to simulate concurrently, replace ```N_PROCESS``` with integer number of cores. Default: # CPU cores.</td>
+            <td>Total number of processes to simulate concurrently, replace "N_PROCESS" with integer number of cores. Default: # CPU cores.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>-s SLEEP | --sleep_sec SLEEP</td>
-            <td>Number of seconds between each iteration of the monitoring loop, replace ```SLEEP``` with integer number of seconds. Default: 1.</td>
+            <td>Number of seconds between each iteration of the monitoring loop, replace "SLEEP" with integer number of seconds. Default: 1.</td>
             <td>Yes</td>
         </tr>
     </tbody>
@@ -133,7 +133,7 @@ Run 8 copies of the instrument file 'Single_Hexagonal_Channel.instr' on all CPU 
 ```
 
 ### Unique Simulations
-Use the CSV file 'Test.csv' to specify parameters for each process of the instrument file 'Single_Hexagonal_Channel.instr' on all CPU cores, number of events is 10E6, and put all the data files into a directory called 'out', deleting all data directories afterwards:
+Use the CSV file 'Test.csv' to specify parameters for each process of the instrument file 'Single_Hexagonal_Channel.instr' on all CPU cores, number of events is 10E6, and moving all the data files resulting from the simulations into a single directory called 'out', then deleting all data directories afterwards:
 ```python
 ./multimxrun.py -r -n 10000000 -d out -c Test.csv Single_Hexagonal_Channel.instr
 ```
