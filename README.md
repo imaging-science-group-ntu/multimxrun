@@ -14,9 +14,10 @@ There are two modes that can be used:
 * <a href="README.md#References" title="References">References</a>.
 
 ## Command-Line Syntax Overview
-<code>
-multimxrun.py [-h] [-n N_EVENTS] [-d DIR] [-r] [-o OUTPUT] [-e PREFIX] [-a ADDITIONAL] [-c CSV_INPUT | -t T_PROCESS] [-p N_PROCESS] [-s SLEEP_SEC] [-v] sim_file
-</code>
+```bash
+multimxrun.py [-h] [-n N_EVENTS] [-d DIR] [-r] [-o OUTPUT] [-e PREFIX] [-a ADDITIONAL]
+              [-c CSV_INPUT | -t T_PROCESS][-p N_PROCESS] [-s SLEEP_SEC] [-v] sim_file
+```
 
 ## Arguments
 Full documentation for list of command-line arguments for multimxrun.
