@@ -101,13 +101,13 @@ Full documentation for list of command-line arguments for multimxrun.
 ## CSV File Formatting
 ### CSV File Formatting Rules
 When using a CSV file:
-* One simulation will be ran per-line of the CSV file, where the variable values in each line of the CSV file are read in and applied one simulation at a time.
+* One simulation will be ran per-line of the CSV file, where the variable values in each individual line of the CSV file are read in and applied during each sequentially started simulation respectively.
 * Each individual variable named in the instrument file must correspond to a single column in the CSV file, with the variable names listed one per-column in the first row of the CSV file. This is in order for the script to determine parity between the simulation and CSV file, matching each CSV file column with the corresponding variable in the simulated instrument.
 * The data for simulations is entered from the second row of the CSV file, data must form a 'perfect grid' which directly corresponds to the instrument file:
   * All rows must have a value set for all named variables (each column).
   * Each CSV column must have an identical number of rows.
 * The ```-t``` argument is automatically set to the number of rows in the CSV file and is no longer required to be specified. 
-* ```filename``` is a required named column and can't be substitued for another name, although it can be supplimented by a second text variable in addition; for example, ```PSD_filename``` when using multiple output data files for multiple monitors in the same simulation.
+* ```filename``` is a required named column and can't be substitued for another name, although it can be supplimented by a second text variable in addition; for example, ```PSD_filename``` could be used in addition to ```filename``` when using multiple output data files for multiple monitors during a single execution of a simulated instrument.
 
 ### CSV Example
 Example instrument definition and corresponding CSV file content.
@@ -132,15 +132,15 @@ In this case, the first simulation will use variables `X = 0.1`, `Y = 0.2`, `fil
 
 ## Examples
 ### Identical Simulations
-Run 8 instances of identical simulations of the instrument file ```Example_Static_Simulation.instr``` across as many CPU cores as possible, number of events is 10E6, concatenate data into a single file 'out.dat' and delete all individual simulation directories afterwards:
+Run 8 instances of identical simulations of the instrument file ```Example_Static_Simulation.instr``` across as many CPU cores as possible, number of events is 10E6, concatenate data into a single file ```data.dat``` and then deleting all individual simulation directories afterwards:
 ```python
-./multimxrun.py -r -n 10000000 -o data.dat -t 8 Example_Static_Simulation.instr
+./multimxrun.py -n 10000000 -r -o data.dat -t 8 Example_Static_Simulation.instr
 ```
 
 ### Unique Simulations
-Use the CSV file ```Test.csv``` to specify parameters for each process of the instrument file ```Example_Dynamic_CSV_Simulation.instr``` on all CPU cores, number of events is 10E6, moving all the data files resulting from the simulations into a single directory called 'out', then deleting all data directories afterwards:
+Use the CSV file ```Test.csv``` to specify parameters for each process of the instrument file ```Example_Dynamic_CSV_Simulation.instr``` on all CPU cores, number of events is 10E6, moving all the data files resulting from the simulations into a single directory called ```out``` and retaining all individual simulation directories afterwards:
 ```python
-./multimxrun.py -r -n 10000000 -d out -c Test.csv Example_Dynamic_CSV_Simulation.instr
+./multimxrun.py -n 10000000 -d out -c Test.csv Example_Dynamic_CSV_Simulation.instr
 ```
 For reference CSV file content for this example, see <a href="README.md#CSV-File-Formatting" title="CSV File Formatting">CSV File Formatting</a>.
 
