@@ -1,5 +1,5 @@
 # multimxrun
-Utility to run several instances of the McXtrace simulation utility in separate processes using ```python 3.9```.
+Utility to run several instances of the McXtrace simulation utility in separate processes using ```python 3.6```.
 
 This script allows the user to run several copies of McXtrace in separate processes.
 
@@ -41,14 +41,9 @@ Full documentation for list of command-line arguments for multimxrun.
             <td>Yes</td>
         </tr>
         <tr>
-            <td>sim_file</td>
-            <td>File Path String to the instrument file being compiled and then simulated. Must be included as the final argument.</td>
-            <td>No, Final argument</td>
-        </tr>
-        <tr>
             <td>-n N_EVENT</td>
             <td>Number of events to run per-simulation, replace "N_EVENT" with an integer. Default: 1E8.</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>-d DIR</td>
@@ -94,6 +89,11 @@ Full documentation for list of command-line arguments for multimxrun.
             <td>-s SLEEP</td>
             <td>Number of seconds between each iteration of the monitoring loop, replace "SLEEP" with integer number of seconds. Default: 1.</td>
             <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sim_file</td>
+            <td>File Path String to the instrument file being compiled and then simulated. Must be included as the final argument.</td>
+            <td>No, Final argument</td>
         </tr>
     </tbody>
 </table>
@@ -152,4 +152,4 @@ For reference CSV file content for this example, see <a href="README.md#CSV-File
 Author: Imaging Science Research Group, Nottingham Trent University\
 License: GPL version 3 or later\
 Version: 0.1\
-Built with: [Python 3.9](https://www.python.org/downloads/release/python-390/)
+Tested using: [Python 3.9](https://www.python.org/downloads/release/python-390/)
